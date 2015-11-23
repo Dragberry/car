@@ -1,7 +1,6 @@
 package by.bsuir.drahun.car.client;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -61,7 +60,7 @@ public class CarAppFrame extends JFrame {
 	
 	public ButtonPanel getButtonPanel(Car car) {
 		if (btnPanel == null) {
-			btnPanel = new ButtonPanel(car);
+			btnPanel = new ButtonPanel(car, carCanvasPanel);
 		}
 		return btnPanel;
 	}

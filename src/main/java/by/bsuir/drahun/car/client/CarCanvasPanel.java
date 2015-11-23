@@ -25,6 +25,7 @@ public class CarCanvasPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		car.update(getWidth(), getHeight());
+		System.out.println(getWidth() + " " + getHeight());
 		car.draw(g);
 	}
 

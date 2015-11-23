@@ -22,8 +22,11 @@ public class ButtonPanel extends JPanel {
 	
 	private Car car;
 	
-	public ButtonPanel(Car car) {
+	private JPanel canvas;
+	
+	public ButtonPanel(Car car, JPanel canvas) {
 		this.car = car;
+		this.canvas = canvas;
 		add(getTurnLightOnBtn());
 		add(getTurnLightOffBtn());
 		add(getOpenDoorsBtn());
@@ -36,28 +39,36 @@ public class ButtonPanel extends JPanel {
 		getTurnLightOnBtn().addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Btn light on");
 				car.lightOn();
+				canvas.repaint();
 			}
 		});
 		
 		getTurnLightOffBtn().addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Btn light off");
 				car.lightOff();
+				canvas.repaint();
 			}
 		});
 		
 		getOpenDoorsBtn().addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Btn open doors");
 				car.openDoors();
+				canvas.repaint();
 			}
 		});
 		
 		getCloseDoorsBtn().addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Btn close doors");
 				car.closeDoors();
+				canvas.repaint();
 			}
 		});
 		
@@ -93,6 +104,10 @@ public class ButtonPanel extends JPanel {
 			closeDoors = new JButton("Close doors");
 		}
 		return closeDoors;
+	}
+	
+	public JPanel getCanvas() {
+		return canvas;
 	}
 
 }

@@ -4,6 +4,8 @@ import java.awt.Graphics;
 
 public class Mersedes extends CarElement implements Car {
 	
+	private CarBody body;
+	
 	private Light rigthLigth;
 	
 	private Light leftLight;
@@ -12,17 +14,26 @@ public class Mersedes extends CarElement implements Car {
 	
 	private Door leftDoor;
 	
+	private Wheel rightWheel;
+	
+	private Wheel leftWheel;
+	
 	public Mersedes(int xAppletSize, int yAppletSize) {
 		super(xAppletSize, yAppletSize);
-		recalculate(xAppletSize, yAppletSize);
-	}
-
-	private void recalculate(int xAppletSize, int yAppletSize) {
-		update(xAppletSize, yAppletSize);
+		body = new CarBody(xAppletSize, yAppletSize);
 		rightDoor = new Door(xAppletSize, yAppletSize, true);
 		leftDoor = new Door(xAppletSize, yAppletSize, false);
 		rigthLigth = new Light(xAppletSize, yAppletSize, true);
 		leftLight = new Light(xAppletSize, yAppletSize, false);
+		rightWheel = new Wheel(xAppletSize, yAppletSize, true);
+		leftWheel = new Wheel(xAppletSize, yAppletSize, false);
+		addElement(rightDoor);
+		addElement(leftDoor);
+		addElement(leftWheel);
+		addElement(rightWheel);
+		addElement(body);
+		addElement(leftLight);
+		addElement(rigthLigth);
 	}
 
 	public void openRightDoor() {
@@ -44,21 +55,26 @@ public class Mersedes extends CarElement implements Car {
 	}
 
 	public void lightOn() {
+		System.out.println("Mersedes light on");
 		rigthLigth.turnOn();
 		leftLight.turnOn();
 	}
 
 	public void lightOff() {
+		System.out.println("Mersedes light off");
 		rigthLigth.turnOff();
 		leftLight.turnOff();
 	}
 
 	@Override
-	public void draw(Graphics g) {
-		rightDoor.draw(g);
-		leftDoor.draw(g);
-		rigthLigth.draw(g);
-		leftLight.draw(g);
+	protected void drawElement(Graphics g) {
+
+	}
+
+	@Override
+	protected void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

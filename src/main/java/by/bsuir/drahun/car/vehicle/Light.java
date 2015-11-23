@@ -3,6 +3,8 @@ package by.bsuir.drahun.car.vehicle;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import by.bsuir.drahun.car.constant.Colors;
+
 public class Light extends SymmetricCarElement {
 	
 	private int xCoor;
@@ -17,25 +19,16 @@ public class Light extends SymmetricCarElement {
 
 	public Light(int xAppletSize, int yAppletSize, boolean right) {
 		super(xAppletSize, yAppletSize, right);
-		xSize = getXAppletSize() / 20;
-		ySize = getYAppletSize() / 25;
-		if (isRight()) {
-			xCoor = getXAppletSize() / 2 - getXAppletSize() / 6;
-		} else {
-			xCoor = getXAppletSize() / 2 + getXAppletSize() / 6 - xSize;
-		}
-		yCoor = getYAppletSize() / 2 +  getYAppletSize() / 4;
-		
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	protected void drawElement(Graphics g) {
 		g.setColor(resolveColor());
 		g.fillRect(xCoor, yCoor, xSize, ySize);
 	}
 
 	private Color resolveColor() {
-		return isLightOn() ? Color.YELLOW : Color.GRAY;
+		return isLightOn() ? Color.YELLOW : Colors.GLASS_COLOR;
 	}
 	
 	public boolean turnOn() {
@@ -50,5 +43,17 @@ public class Light extends SymmetricCarElement {
 	
 	public boolean isLightOn() {
 		return lightOn;
+	}
+
+	@Override
+	protected void update() {
+		xSize = getX() / 20;
+		ySize = getY() / 25;
+		if (isRight()) {
+			xCoor = getX() / 2 - getX() / 6;
+		} else {
+			xCoor = getX() / 2 + getX() / 6 - xSize;
+		}
+		yCoor = getY() / 2 +  getY() / 4;
 	}
 }
