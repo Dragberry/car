@@ -16,6 +16,11 @@ public class CarBody extends CarElement {
 	private int bumpXSize;
 	private int bumpYSize;
 	
+	private int gridXCoor;
+	private int gridYCoor;
+	private int gridXSize;
+	private int gridYSize;
+	
 	private int[] glassX;
 	private int[] glassY;
 	
@@ -29,7 +34,13 @@ public class CarBody extends CarElement {
 		drawFrontGlass(g);
 		drawFrontPart(g);
 		drawBumper(g);
+		drawGrid(g);
 
+	}
+
+	private void drawGrid(Graphics g) {
+		g.setColor(Colors.GRID_COLOR);
+		g.fillRoundRect(gridXCoor, gridYCoor, gridXSize, gridYSize, 15, 15);
 	}
 
 	private void drawFrontGlass(Graphics g) {
@@ -62,6 +73,11 @@ public class CarBody extends CarElement {
 		bumpYCoor = getY() / 2 +  getY() / 4 + getY() / 25;
 		bumpYSize = getY() / 30;
 		bumpXSize = (getX() / 6 + getX() / 40) * 2;
+		
+		gridXCoor = getX() / 2 - getX() / 16 - getX() / 40;
+		gridXSize = (getX() / 16 + getX() / 40) * 2;
+		gridYSize = getY() / 25;
+		gridYCoor = getY() / 2 +  getY() / 4;
 		
 		glassX[0] = getX() / 2 - getX() / 6 - getX() / 48 + 20;
 		glassX[1] = getX() / 2 - getX() / 6 - getX() / 48 + 20 + getX() / 35;

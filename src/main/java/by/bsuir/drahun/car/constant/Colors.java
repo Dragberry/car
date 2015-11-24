@@ -8,5 +8,7 @@ public final class Colors {
 	
 	public static final Color BLACK_COLOR = Color.BLACK;
 	
+	public static final Color GRID_COLOR = Color.GRAY;
+	
 	public static final Color GLASS_COLOR = new Color(100, 149, 237);
 }

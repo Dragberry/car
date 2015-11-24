@@ -21,7 +21,7 @@ public class CarAppFrame extends JFrame {
 	private static final long serialVersionUID = -4293530107899281126L;
 
 	public void init() {
-		setMinimumSize(new Dimension(1024, 768));
+		setMinimumSize(new Dimension(800, 600));
 		setTitle("Car Application Client");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(new GridBagLayout());
